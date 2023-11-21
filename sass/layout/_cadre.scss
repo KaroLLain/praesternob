@@ -1,0 +1,46 @@
+.cadre {
+    grid-column: full-start / full-end;
+    background-image: linear-gradient(33deg,
+            transparent 46.8%,
+            $color-com-grey-3 47%);
+    padding: 11rem 10rem 20rem;
+
+    display: grid;
+    grid-template-columns: repeat(6, minmax(25rem, 1fr));
+    gap: 1rem;
+    justify-content: center;
+
+    &__heading {
+        justify-self: center;
+        padding-bottom: 10rem;
+        grid-column: 1 / -1;
+        text-shadow: 0 10px 20px $color-shadow;
+    }
+
+    a {
+        visibility: hidden;
+    }
+
+}
+
+//contrast
+
+.contrast .cadre {
+    background-image: linear-gradient(33deg,
+            white 47%,
+            black 47%);
+}
+
+//switchedColors
+
+.switchedColors .cadre {
+    background-image: none;
+    background-color: black;
+}
+
+//lightBackground
+
+.lightBackground .cadre {
+    background-image: none;
+    background-color: white;
+}

@@ -1,0 +1,143 @@
+.cadre__idCard {
+    height: 38rem;
+    max-width: 38rem;
+    background: $color-com-grey;
+    transition: 0.4s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 30rem;
+    border-top-right-radius: 30rem;
+
+
+    &:hover {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    &__img {
+        height: 28rem;
+        width: 100%;
+
+        &--1 {
+            border-top-left-radius: 30rem;
+            border-top-right-radius: 30rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__top__text {
+
+        text-align: center;
+        color: $color-grey-dark-1;
+
+        &--1 {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        &--2 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 20px;
+        }
+    }
+
+
+    &__bottom__text {
+        background-color: $color-com-grey;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-7.5rem);
+
+
+        &--1 {
+            padding: 1rem 2rem;
+            color: $color-font-secondary;
+            font-weight: 500;
+            font-size: 1.2rem;
+            background-color: $color-com-grey;
+            text-align: justify;
+        }
+    }
+
+    &:hover &__bottom__text {
+        height: 10rem;
+        opacity: 1;
+        visibility: visible;
+        background-color: inherit;
+        animation: moveUpSlider .2s ease;
+    }
+}
+
+
+.contrast .cadre__idCard__img {
+    filter: grayscale(1) brightness(1.1) contrast(1.1);
+}
+
+.contrast .cadre__idCard {
+    @include contrastH1;
+
+    &__bottom__text--1 {
+        @include contrastH2;
+    }
+
+    &__top__text {
+
+        &--1 {
+            @include contrastH1;
+        }
+
+        &--2 {
+            @include contrastH2;
+        }
+    }
+}
+
+.switchedColors .cadre__idCard__img {
+    filter: grayscale(1) brightness(1.1) contrast(1.1);
+}
+
+.switchedColors .cadre__idCard {
+    @include contrastH1;
+
+    &__bottom__text--1 {
+        @include contrastH1;
+    }
+
+    &__top__text {
+
+        &--1 {
+            @include contrastH1;
+        }
+
+        &--2 {
+            @include contrastH1;
+        }
+    }
+}
+
+.lightBackground .cadre__idCard__img {
+    filter: grayscale(1) brightness(1.1) contrast(1.1);
+}
+
+.lightBackground .cadre__idCard {
+    @include contrastH1invert;
+    border: 1px solid black;
+
+    &__bottom__text--1 {
+        @include contrastH1invert;
+        border: 1px solid black;
+    }
+
+    &__top__text {
+
+        &--1 {
+            @include contrastH1invert;
+            border-top: 1px solid black;
+        }
+
+        &--2 {
+            @include contrastH1invert;
+        }
+    }
+}
