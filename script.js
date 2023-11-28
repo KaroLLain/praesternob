@@ -2,6 +2,7 @@
 
 //Selecting elements
 const settingsToolbarBtn = document.querySelector('.settings__toolbar');
+const headerContainer = document.querySelector('.header');
 const settingsToolbarToggleBtn = document.querySelector('.settings__toolbar__toggle');
 const closingPlacement = document.querySelector('.container');
 const defaultFontSize = document.querySelector('html');
@@ -20,15 +21,17 @@ const tabContainer = document.querySelector('.btn__btn__tab-container');
 const tabsContent = document.querySelectorAll('.textarea__content');
 const tabsMsgContent = document.querySelectorAll('.message__content');
 const popupCloses = document.querySelectorAll('.close');
-const popups = document.querySelectorAll (".popup");
+
 class App {
 
     constructor() {
         //Setting app
+        this._loadHeader();
         this._init();
         this._initToolbarPosition();
         this._mapLocation();
         this._showPopup();
+        this._closePopup();
 
         //Attaching event handlers
         settingsToolbarToggleBtn.addEventListener('click', this._toolbarPosition.bind(this));
@@ -54,7 +57,26 @@ class App {
             document.querySelector(`.textarea__content--${clicked.dataset.tab}`).classList.add('textarea__content--active');
             document.querySelector(`.message__content--${clicked.dataset.tab}`).classList.add('message__content--active');
         });
-    }
+    };
+
+    async _loadHeader() {
+        try { const markup = `
+            <div class="headerContainer">
+            <div class="headerContainer__text heading__primary">
+                <h1><span class="heading__primary--main"> <span class="first-word">Fundacja</span> Praesterno </span>
+                </h1>
+                <h1><span class="heading__primary--sub">spotkajmy się we Wrocławiu</span></h1>
+            </div>
+            <div class="btn"><a class="btn__btn btn__btn--white btn__btn--animated" href="#aboutSection">Poznaj nas</a>
+            </div> 
+        </div>
+            `
+            headerContainer.innerHTML = '';
+            headerContainer.insertAdjacentHTML('afterBegin', markup);
+        } catch(err) {
+            alert(err);
+        }
+    };
 
     _init() {
         htmlSelector.classList.remove('basicFont');
